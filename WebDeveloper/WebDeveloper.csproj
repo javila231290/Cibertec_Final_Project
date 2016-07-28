@@ -174,6 +174,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdventureWorks2014DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2014DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -212,6 +217,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Css\datepicker.css" />
+    <Content Include="Css\datepicker.min.css" />
     <Content Include="Css\site.css" />
     <Content Include="Css\site.min.css">
       <DependentUpon>site.css</DependentUpon>
@@ -222,6 +229,8 @@
     <Content Include="js\modal.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Internal\Views\web.config" />
@@ -240,6 +249,20 @@
     <Content Include="Areas\Personal\Views\Personal\_Create.cshtml" />
     <Content Include="Areas\Personal\Views\Personal\_Edit.cshtml" />
     <Content Include="Areas\Personal\Views\Address\Index.cshtml" />
+    <Content Include="Areas\Personal\Views\Personal\List.cshtml" />
+    <Content Include="Areas\Personal\Views\Personal\_List.cshtml" />
+    <Content Include="Areas\Personal\Views\Personal\_FileUpload.cshtml" />
+    <Content Include="AdventureWorks2014DataSet.xsc">
+      <DependentUpon>AdventureWorks2014DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="AdventureWorks2014DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdventureWorks2014DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="AdventureWorks2014DataSet.xss">
+      <DependentUpon>AdventureWorks2014DataSet.xsd</DependentUpon>
+    </Content>
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -329,8 +352,14 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\Personal\Functions.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Shared\modal.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -387,6 +416,9 @@
       <Project>{799ec88d-c8f0-47bc-a707-9c74023e17a5}</Project>
       <Name>WebDeveloper.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Test\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

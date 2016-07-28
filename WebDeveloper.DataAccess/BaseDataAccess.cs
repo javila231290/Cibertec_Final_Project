@@ -41,5 +41,12 @@ namespace WebDeveloper.DataAccess
             }
         }
 
+        public int Count()
+        {
+            using (var dbContext = new WebContextDb())
+            {
+                return dbContext.Set<T>().Count();
+            }
+        }
     }
 }
