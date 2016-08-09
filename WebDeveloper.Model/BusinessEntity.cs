@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,12 +24,13 @@ namespace WebDeveloper.Model
 
         public DateTime ModifiedDate { get; set; }
 
-        
+        [JsonProperty]
         public virtual ICollection<BusinessEntityAddress> BusinessEntityAddress { get; set; }
 
-        
+        [JsonProperty]
         public virtual ICollection<BusinessEntityContact> BusinessEntityContact { get; set; }
 
+        [JsonIgnore]
         public virtual Person Person { get; set; }
     }
 }
