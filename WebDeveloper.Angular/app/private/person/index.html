@@ -1,3 +1,89 @@
-﻿<div ng-controller="PersonController">
+﻿<div ng-controller="PersonController as vm">
     <h1>{{vm.title}}</h1>
+    <hr />
+    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-person">
+        <span class="glyphicon glyphicon-list"></span> create
+    </a>    
+    <hr />
+    <person-card ng-repeat="person in vm.personList"
+                 person-id="{{::person.businessEntityID}}"
+                 first-name="{{::person.firstName}}"
+                 middle-name="{{::person.middleName}}"
+                 last-name="{{::person.lastName}}"
+                 modified-date="{{::person.modifiedDate}}">
+        <h1>Hello {{::person.businessEntityID}}</h1>        
+        
+        <a href="#" ng-click="vm.getPerson(person.businessEntityID)" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit-person">
+            <span class="glyphicon glyphicon-list"></span> Edit
+        </a>
+        <hr />
+    </person-card>
+
+
+    <div class="modal fade" id="create-person" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Person Create</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <form novalidate>
+                            <label>Type: </label><input type="text" ng-model="vm.createPerson.personType"/> <br />
+                            <label>Name Style: </label><input type="checkbox" value="false" ng-model="vm.createPerson.nameStyle"/><br />
+                            <label>Title: </label><input type="text" ng-model="vm.createPerson.title"/><br />
+                            <label>First Name: </label><input type="text" ng-model="vm.createPerson.firstName"/><br />
+                            <label>Middle Name: </label><input type="text" ng-model="vm.createPerson.middleName"/><br />
+                            <label>Last Name: </label><input type="text" ng-model="vm.createPerson.lastName"/><br />
+                            <label>Suffix: </label><input type="text" ng-model="vm.createPerson.suffix"/><br />
+                            <label>Email Promotion: </label><input type="text" ng-model="vm.createPerson.emailPromotion"/><br />
+                            <label>Additional Contact Info: </label><input type="text" ng-model="vm.createPerson.additionalContactInfo"/><br />
+                            <label>Demographics: </label><input type="text" ng-model="vm.createPerson.demographics"/><br />
+                            <label>Password: </label><input type="text" ng-model="vm.createPerson.password"/><br />
+
+                            <hr />
+                            <button type="button" ng-click="vm.personCreate(vm.createPerson)" class="btn btn-success">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="edit-person" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Person Edit</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <form novalidate>
+                            <label>Type: </label><input type="text" ng-model="vm.updatePerson.personType" /> <br />
+                            <label>Name Style: </label><input type="checkbox" value="false" ng-model="vm.updatePerson.nameStyle" /><br />
+                            <label>Title: </label><input type="text" ng-model="vm.updatePerson.title" /><br />
+                            <label>First Name: </label><input type="text" ng-model="vm.updatePerson.firstName" /><br />
+                            <label>Middle Name: </label><input type="text" ng-model="vm.updatePerson.middleName" /><br />
+                            <label>Last Name: </label><input type="text" ng-model="vm.updatePerson.lastName" /><br />
+                            <label>Suffix: </label><input type="text" ng-model="vm.updatePerson.suffix" /><br />
+                            <label>Email Promotion: </label><input type="text" ng-model="vm.updatePerson.emailPromotion" /><br />
+                            <label>Additional Contact Info: </label><input type="text" ng-model="vm.updatePerson.additionalContactInfo" /><br />
+                            <label>Demographics: </label><input type="text" ng-model="vm.updatePerson.demographics" /><br />
+                            <label>Password: </label><input type="text" ng-model="vm.updatePerson.password" /><br />
+
+                            <hr />
+                            <button type="button" ng-click="vm.personUpdate(vm.updatePerson)" class="btn btn-success">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

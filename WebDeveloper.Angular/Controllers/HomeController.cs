@@ -11,7 +11,6 @@ namespace WebDeveloper.Angular.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
+        }        
     }
 }

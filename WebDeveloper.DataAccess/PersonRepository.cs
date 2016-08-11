@@ -14,19 +14,16 @@ namespace WebDeveloper.DataAccess
         {
             using (var dbContext = new WebContextDb())
             {
-                return Automapper.GetGeneric<IEnumerable<Person>, List<PersonModelView>>(dbContext.Person.ToList().OrderByDescending(x => x.ModifiedDate));
+                return Automapper.GetGeneric<IEnumerable<Person>,List<PersonModelView>>(dbContext.Person.OrderByDescending(x=> x.ModifiedDate));
             }
         }
+
 
         public IEnumerable<PersonModelView> GetListDtoPage(int page, int size)
         {
             using (var dbContext = new WebContextDb())
             {
-                return Automapper.GetGeneric<IEnumerable<Person>,
-                                    List<PersonModelView>>(
-                                    dbContext.Person.OrderByDescending(x =>
-                                                    x.BusinessEntityID)
-                                    .Page(page, size));
+                return Automapper.GetGeneric<IEnumerable<Person>, List<PersonModelView>>(dbContext.Person.OrderByDescending(x => x.BusinessEntityID).Page(page, size));
             }
         }
 

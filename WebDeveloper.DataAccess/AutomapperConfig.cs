@@ -38,10 +38,10 @@ namespace WebDeveloper.DataAccess
             return mapper.Map<IEnumerable<T>, List<R>>(objectList);
         }
 
-        public static R GetGeneric<T, R>(T keyDocumentParent)
+        public static R GetGeneric<T, R>(T entityList)
         {
             var mapper = _config.CreateMapper();
-            return mapper.Map<T, R>(keyDocumentParent);
+            return mapper.Map<T, R>(entityList);
         }
     }
 }

@@ -29,7 +29,6 @@ namespace WebDeveloper.Model
 
         [JsonProperty]
         public virtual ICollection<BusinessEntityContact> BusinessEntityContact { get; set; }
-
         [JsonIgnore]
         public virtual Person Person { get; set; }
     }

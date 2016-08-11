@@ -15,18 +15,21 @@ namespace WebDeveloper.Angular
                         .Include("~/Scripts/angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular-external")
-                        .IncludeDirectory("~/Scripts/angular",
+                        .IncludeDirectory("~/Scripts/angular", 
                                           "*.js",
                                           true)
                         );
 
             bundles.Add(new ScriptBundle("~/bundles/app")
                         .Include("~/app/app.js")
-                        .Include("~/app/routes.js")
+                        .Include("~/app/app.routes.js")
                         .IncludeDirectory("~/app/private",
                                           "*.js",
                                           true)
-                        );
+                        .IncludeDirectory("~/app/components",
+                                          "*.js",
+                                          true)
+                       );
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

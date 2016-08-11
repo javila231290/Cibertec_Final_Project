@@ -273,7 +273,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52372</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WebDeveloper.API/</IISUrl>
+          <IISUrl>http://localhost/WebDeveloper-API/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -12,19 +12,17 @@ namespace WebDeveloper.API.Api
 {
     [RoutePrefix("person")]
     public class PersonController : ApiController
-    {        
+    {
         PersonRepository _person;
         public PersonController(PersonRepository person)
         {
             _person = person;
         }
 
-        [HttpGet]        
+        [HttpGet]
         [Route("edit/{id:int}")]
         public IHttpActionResult EditById(int id)
         {
-            //var person = Automapper.GetGeneric<Person, PersonModelView>(_person.GetById(id));
-            //return Ok(person);
             return Ok(_person.GetById(id));
         }
 
@@ -36,16 +34,17 @@ namespace WebDeveloper.API.Api
             {
                 page = 1;
                 size = 10;
-            }
-            return Ok(_person.GetListDtoPage(page.Value, size.Value));
+            }            
+            return Ok(_person.GetListDtoPage(page.Value, size.Value)); 
         }
+
 
         [HttpPost]
         public IHttpActionResult Update(Person person)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             _person.Update(person);
-            return Ok();
+            return Ok($"The {person.BusinessEntityID} was updated.");
         }
 
         [HttpPut]
@@ -59,15 +58,15 @@ namespace WebDeveloper.API.Api
                 ModifiedDate = person.ModifiedDate
             };
             _person.Add(person);
-            return Ok();
+            return Ok("The new record was created.");
         }
 
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var person = _person.GetById(id);
-            if(_person.Delete(person)>0)
-                return Ok($"The record {person.BusinessEntityID} is deleted");
+            if (_person.Delete(person) > 0)
+                return Ok($"The record {person.BusinessEntityID} was deleted");
             return BadRequest("There is an issue");
         }
     }
